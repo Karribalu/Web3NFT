@@ -32,6 +32,16 @@ contract Web3NFTContract is ERC1155, Ownable, Pausable, ERC1155Supply {
     function unpause() public onlyOwner {
         _unpause();
     }
+    function setReservedList(address[] calldata _ReservedMintList) public onlyOwner {
+        for (uint i = 0; i < _ReservedMintList.length; i++) {
+            ReservedMintList[_ReservedMintList[i]] = true;
+        }
+    }
+    function removeReservedList(address[] calldata _ReservedMintList) public onlyOwner {
+        for (uint i = 0; i < _ReservedMintList.length; i++) {
+            ReservedMintList[_ReservedMintList[i]] = false;
+        }
+    }
 
     function publicMint(uint256 id, uint256 amount)
         public
