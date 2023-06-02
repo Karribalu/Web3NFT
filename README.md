@@ -4,12 +4,14 @@ This project demonstrates a basic Hardhat use case. It comes with a sample contr
 
 Try running some of the following tasks:
 ## add your own
-POLYGON_MUMBAI_RPC_URL
-POLYGON_API_KEY
-PRIVATE_KEY ( Wallet )
-POLYGON_SCAN_API_KEY 
-add 
+POLYGON_MUMBAI_RPC_URL <br>
+POLYGON_API_KEY <br>
+PRIVATE_KEY ( Wallet ) <br>
+POLYGON_SCAN_API_KEY<br>
+in .env file
 ```shell
+npm init
+npm install
 npx hardhat help
 npx hardhat test
 REPORT_GAS=true npx hardhat test
