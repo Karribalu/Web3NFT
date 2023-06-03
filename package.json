@@ -16,6 +16,7 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
     "@nomicfoundation/hardhat-verify": "^1.0.0",
+    "bignumber.js": "^9.1.1",
     "dotenv": "^16.1.3"
   }
 }

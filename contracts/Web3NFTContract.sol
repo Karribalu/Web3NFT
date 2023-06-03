@@ -5,8 +5,8 @@ import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
-
-contract Web3NFTContract is ERC1155, Ownable, Pausable, ERC1155Supply {
+import  "@openzeppelin/contracts/finance/PaymentSplitter.sol";
+contract Web3NFTContract is ERC1155, Ownable, Pausable, ERC1155Supply, PaymentSplitter {
     bool publicMintOpen = true;
     uint256 publicMintPrice = 0.01 ether;
     uint256 publicMintLimit = 3;
@@ -17,8 +17,9 @@ contract Web3NFTContract is ERC1155, Ownable, Pausable, ERC1155Supply {
     uint256 ReservedMintLimit = 5;
     mapping (address => uint) ReservedMintCount;
 
-    constructor()
+    constructor(address[] memory payees, uint256[] memory shares_) PaymentSplitter(payees, shares_)
         ERC1155("ipfs://Qmaa6TuP2s9pSKczHF4rwWhTKUdygrrDs8RmYYqCjP3Hye/c")
+        
     {}
 
     function setURI(string memory newuri) public onlyOwner {
